@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: dark;
+  color: #e2e8f0;
+  background-color: #0c0d12;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #0c0d12;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  background-color: #0c0d12;
+}
+
+/* Refined Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Subtle noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Editoral serif headings */
+.font-serif {
+  font-family: 'Source Serif 4', 'Georgia', serif;
+}
+
+/* Section card base */
+.section-card {
+  background: #161822;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-card:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Confidence chip */
+.chip-confidence {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  line-height: 1.6;
+}
+
+.chip-confidence--high {
+  background: rgba(20, 184, 166, 0.1);
+  color: #14b8a6;
+  border: 1px solid rgba(20, 184, 166, 0.15);
+}
+
+.chip-confidence--medium {
+  background: rgba(212, 168, 83, 0.1);
+  color: #d4a853;
+  border: 1px solid rgba(212, 168, 83, 0.15);
+}
+
+.chip-confidence--low {
+  background: rgba(199, 80, 80, 0.1);
+  color: #c75050;
+  border: 1px solid rgba(199, 80, 80, 0.15);
+}
+
+/* Source type chip */
+.chip-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  line-height: 1.6;
+}
+
+.chip-source--pubmed {
+  background: rgba(56, 189, 248, 0.08);
+  color: #7dd3fc;
+}
+
+.chip-source--uniprot {
+  background: rgba(168, 148, 236, 0.08);
+  color: #b4a8ec;
+}
+
+.chip-source--ensembl {
+  background: rgba(52, 211, 153, 0.08);
+  color: #6ee7b7;
+}
+
+.chip-source--reactome {
+  background: rgba(251, 191, 36, 0.08);
+  color: #fcd34d;
+}
+
+/* Entity type chip */
+.chip-entity {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  line-height: 1.6;
+}
+
+.chip-entity--gene {
+  background: rgba(99, 102, 241, 0.1);
+  color: #818cf8;
+}
+
+.chip-entity--disease {
+  background: rgba(244, 63, 94, 0.08);
+  color: #fda4af;
+}
+
+.chip-entity--pathway {
+  background: rgba(20, 184, 166, 0.08);
+  color: #5eead4;
+}
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg, rgba(22, 24, 34, 0.6) 25%, rgba(34, 38, 57, 0.7) 50%, rgba(22, 24, 34, 0.6) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite linear;
+}
+
+@keyframes shimmer {
+  '0%': { background-position: '-200% 0' }
+  '100%': { background-position: '200% 0' }
+}
+
+/* Subtle focus ring */
+*:focus-visible {
+  outline: 1px solid rgba(99, 102, 241, 0.4);
+  outline-offset: 1px;
+}
