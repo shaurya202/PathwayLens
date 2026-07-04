@@ -122,10 +122,6 @@ function App() {
                   </button>
                 ))}
               </div>
-
-              <div className="border border-dashed border-border-strong rounded px-4 py-3 text-slate-600 text-xs">
-                Drag & drop a .txt, .md, or .pdf file
-              </div>
             </div>
           )}
 
